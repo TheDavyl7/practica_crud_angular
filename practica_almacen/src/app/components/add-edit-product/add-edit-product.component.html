@@ -1,0 +1,37 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header text-center">{{operation}}</div>
+            <div class="card-body">
+                <form [formGroup]="forms" (ngSubmit)="addProduct()">
+                    <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
+                    <span *ngIf="forms.get('name')?.hasError('required') && forms.get('name')?.touched">
+                        El campo nombre es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="description" type="text" class="form-control mt-2" placeholder="Ingrese descripcion">
+                    <span *ngIf="forms.get('description')?.hasError('required') && forms.get('description')?.touched">
+                        El campo descripcion es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="price" type="number" class="form-control mt-2" placeholder="Ingrese precio">
+                    <span *ngIf="forms.get('price')?.hasError('required') && forms.get('price')?.touched">
+                        El campo precio es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="stock" type="number" class="form-control mt-2" placeholder="Ingrese stock">
+                    <span *ngIf="forms.get('stock')?.hasError('required') && forms.get('stock')?.touched">
+                        El campo stock es <strong>requerido</strong>
+                    </span> 
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-secondary mt-2" routerLink="/">Volver</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button [disabled]="forms.invalid" type="submit" class="btn btn-primary mt-2">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

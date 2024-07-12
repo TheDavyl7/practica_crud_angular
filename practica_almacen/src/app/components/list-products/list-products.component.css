@@ -1,0 +1,9 @@
+.title {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+::ng-deep .table-white-font th,
+::ng-deep .table-white-font td{
+    color: white !important;
+}
